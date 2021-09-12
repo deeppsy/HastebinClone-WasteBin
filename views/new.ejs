@@ -16,14 +16,15 @@
 
 <body>
     <form action="/save" method="POST">
-        <div class="wrapper">
-            <div class="line-numbers">
-                &gt;
-            </div>
-            <textarea name="value" autofocus>
+        <%- include("_buttons.ejs") %>
+            <div class="wrapper">
+                <div class="line-numbers">
+                    &gt;
+                </div>
+                <textarea name="value" autofocus>
                 <%= locals.value %> 
             </textarea>
-        </div>
+            </div>
     </form>
 </body>
 <script>
