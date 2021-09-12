@@ -6,6 +6,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   const code = `Welcome to WasteBin!
@@ -18,6 +19,12 @@ to create a new file to share with others`;
 
 app.get("/new", (req, res) => {
   res.render("new");
+});
+
+app.post("/save", (req, res) => {
+  const { value } = req.body;
+
+  res.redirect("/");
 });
 
 app.listen(3000, () => {
