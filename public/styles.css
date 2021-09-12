@@ -24,3 +24,15 @@ pre {
   font-family: monospace;
   text-align: end;
 }
+
+textarea {
+  background-color: transparent;
+  resize: none;
+  width: 100%;
+  padding: 0;
+  margin-left: 1rem;
+  color: rgb(125, 125, 125);
+  min-height: calc(100vh - 2rem);
+  border: none;
+  outline: none;
+}
