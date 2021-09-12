@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/wastebin";
+
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -6,7 +12,7 @@ const Document = require("./models/Document");
 const app = express();
 
 mongoose
-  .connect("mongodb://localhost/wastebin", {
+  .connect(dbUrl, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
