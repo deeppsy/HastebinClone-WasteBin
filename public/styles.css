@@ -2,3 +2,25 @@ body {
   background-color: rgb(0, 43, 54);
   margin: 0;
 }
+
+.wrapper {
+  display: flex;
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+}
+
+pre {
+  /* It doesn't line up so we have to remove some of the default margin on the page */
+  margin: 0;
+}
+
+#code-display {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.line-number {
+  color: rgb(125, 125, 125);
+  font-family: monospace;
+  text-align: end;
+}
