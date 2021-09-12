@@ -6,9 +6,9 @@ const Document = require("./models/Document");
 const app = express();
 
 mongoose
-  .connect("mongodb://localhost:27017/wastebin", {
-    useNewUrlParser: true,
+  .connect("mongodb://localhost/wastebin", {
     useUnifiedTopology: true,
+    useNewUrlParser: true,
   })
   .then(() => {
     console.log("MONGO CONNECTION OPEN");
@@ -19,7 +19,7 @@ mongoose
 
 app.set("view engine", "ejs");
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -47,11 +47,21 @@ app.post("/save", async (req, res) => {
   }
 });
 
+app.get("/:id/duplicate", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const document = await Document.findById(id);
+    res.render("new", { value: document.value });
+  } catch (e) {
+    res.redirect(`/${id}`);
+  }
+});
+
 app.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const document = await Document.findById(id);
-    res.render("code-display", { code: document.value });
+    res.render("code-display", { code: document.value, id });
   } catch (error) {
     res.redirect("/");
   }

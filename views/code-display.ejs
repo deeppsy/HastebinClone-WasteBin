@@ -16,11 +16,11 @@
     <script>hljs.highlightAll();</script>
 
     <link rel="stylesheet" href="./styles.css">
-    <title>Document</title>
+    <title>Display Code</title>
 </head>
 
 <body>
-    <%- include("_buttons.ejs") %>
+    <%- include("_buttons.ejs", {id: locals.id}) %>
 
         <div class="wrapper">
             <div class="line-numbers">
