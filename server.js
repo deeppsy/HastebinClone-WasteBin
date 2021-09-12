@@ -17,7 +17,7 @@ to create a new file to share with others`;
 });
 
 app.get("/new", (req, res) => {
-  res.send("new");
+  res.render("new");
 });
 
 app.listen(3000, () => {

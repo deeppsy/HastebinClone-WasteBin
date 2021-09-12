@@ -19,7 +19,7 @@ pre {
   padding-bottom: 0;
 }
 
-.line-number {
+.line-numbers {
   color: rgb(125, 125, 125);
   font-family: monospace;
   text-align: end;
